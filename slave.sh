@@ -28,7 +28,7 @@ read -p $'\e[33mВведите master_log_file: \e[0m' master_log_file
 read -p $'\e[33mВведите master_log_pos: \e[0m' master_log_pos
 
 # Настройка репликации
-sudo mysql -uroot -p"$root_password" -e "CHANGE MASTER TO MASTER_HOST='$master_ip', MASTER_USER='repl', MASTER_PASSWORD='$repl_password', MASTER_PORT=3306, MASTER_LOG_FILE='$master_log_file', MASTER_LOG_POS=$master_log_pos, Get_MASTER_PUBLIC_KEY=1;"
+sudo mysql -uroot -p"$root_password" -e "CHANGE MASTER TO MASTER_HOST='$master_ip', MASTER_USER='repl', MASTER_PASSWORD='$repl_password', MASTER_LOG_FILE='$master_log_file', MASTER_LOG_POS=$master_log_pos, GET_MASTER_PUBLIC_KEY=1;"
 sudo mysql -uroot -p"$root_password" -e "START SLAVE;"
 
 # Установка Prometheus
